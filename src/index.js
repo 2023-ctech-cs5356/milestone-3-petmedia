@@ -1,8 +1,23 @@
-// help contents in "App.js" file to be rendered and displayed in website
-
-import ReactDOM from 'react-dom';
-// import 'semantic-ui-css/semantic.min.css';
-
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
 import App from './App';
+import reportWebVitals from './reportWebVitals';
+import { BrowserRouter } from 'react-router-dom';
+import { AuthContextProvider } from './context/AuthContext';
+import { PetContextProvider } from './context/PetContext';
 
-ReactDOM.render(<App />, document.getElementById('root')); 
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+  <React.StrictMode>
+    <AuthContextProvider>
+      <PetContextProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </PetContextProvider>
+    </AuthContextProvider>
+
+  </React.StrictMode>
+);
+reportWebVitals();
