@@ -1,5 +1,8 @@
 {
   "projects": {
-    "default": "petlove-f46c2"
-  }
+    "default": "petmedia-milestone3",
+    "petmedia": "petmedia-milestone3"
+  },
+  "targets": {},
+  "etags": {}
 }
