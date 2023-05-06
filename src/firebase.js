@@ -9,13 +9,13 @@ import { getAnalytics } from "firebase/analytics";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-    apiKey: "AIzaSyDUCvx8r5EGKXiwA6U90zkiKI3EcllHpWA",
-    authDomain: "petlove-f46c2.firebaseapp.com",
-    projectId: "petlove-f46c2",
-    storageBucket: "petlove-f46c2.appspot.com",
-    messagingSenderId: "557928792960",
-    appId: "1:557928792960:web:a6b292d5349d47be277765",
-    measurementId: "G-PBGCFXEFG2"
+    apiKey: "AIzaSyDqcO4c0fflI7nJOhStJroOnymdNWl80Zw",
+    authDomain: "petmedia-milestone3.firebaseapp.com",
+    projectId: "petmedia-milestone3",
+    storageBucket: "petmedia-milestone3.appspot.com",
+    messagingSenderId: "594772756103",
+    appId: "1:594772756103:web:6fcbc3404c846af4521a22",
+    measurementId: "G-71DXQ6Y9DC"
 };
   
 
