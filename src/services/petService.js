@@ -1,47 +1,50 @@
+// import from firebase
 import { db } from "../firebase";
-import {
-  collection,
-  doc,
-  deleteDoc,
-  getDocs,
-  addDoc,
-  setDoc,
-  getDoc,
-} from "firebase/firestore";
+import { collection, doc, deleteDoc, getDocs, addDoc, setDoc, getDoc } from "firebase/firestore";
 
+// retrieve all pet data from firebase
 const petCollection = collection(db, "pets");
 
-export async function addPet(data) {
-  const petDocRef = await addDoc(petCollection, data);
-  return petDocRef.id;
-}
+// function to add a new pet
+export const addPet = async (data) => {
+    const petDocRef = await addDoc(petCollection, data);
+    return petDocRef.id;
+  };
 
-export async function getOne(petId) {
-  const docId = doc(petCollection, petId);
-  const docSnap = await getDoc(docId);
-
-  if (docSnap.exists()) {
-    return docSnap;
-  } else {
-    throw new Error("No such document");
-  }
-}
-
-export async function getAll() {
-  const querySnapshot = await getDocs(petCollection);
-  const pets = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
-  return pets;
-}
-
-export async function updatePet(pet) {
-  const docId = doc(petCollection, pet.id);
-  await setDoc(docId, { ...pet });
-  const updatedDoc = await getDoc(docId);
-
-  return updatedDoc.data();
-}
-
+// delete a pet
 export async function deletePet(petId) {
-  const docId = doc(petCollection, petId);
-  await deleteDoc(docId);
+    // return await deleteDoc(doc(db, "pets", petId));
+    await deleteDoc(doc(petCollection, petId));
+}
+
+// get data of all pets
+export async function getAllPets() {
+    const querySnapshot = await getDocs(petCollection);
+    return querySnapshot;
+}
+
+// retrieve the data of a single pet with ID from firestore
+export async function getPet(petId) {
+
+    const docId = (doc(db, "pets", petId));
+    const docSnap = await getDoc(docId);
+    
+    if (docSnap.exists()) {
+        return docSnap;
+    } else {
+        return console.log('No pet!')
+    }
+}
+
+// update a pet data in the 'pets' collection and sync with in firestore
+export async function updatePet(pet) {
+
+    const docId2 = (doc(db, "pets", pet.id));
+    await setDoc(docId2, {
+        ...pet
+    });
+
+    const updatedPet = await getDoc(doc(db, "pets", pet.id));
+    
+    return updatedPet.data();
 }
