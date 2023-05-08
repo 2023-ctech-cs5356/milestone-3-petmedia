@@ -4,7 +4,8 @@ import { getAuth } from "firebase/auth";
 
 import { getFirestore } from "firebase/firestore";
 
-import { getAnalytics } from "firebase/analytics";
+// Line 29:7:  'analytics' is assigned a value but never used  no-unused-vars
+// import { getAnalytics } from "firebase/analytics";
 
 
 // Your web app's Firebase configuration
@@ -26,4 +27,6 @@ const app = initializeApp(firebaseConfig);
 export const db = getFirestore(app);
 
 export const auth = getAuth();
-const analytics = getAnalytics(app);
+
+// Line 29:7:  'analytics' is assigned a value but never used  no-unused-vars
+// const analytics = getAnalytics(app);
