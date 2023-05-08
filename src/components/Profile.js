@@ -44,7 +44,7 @@ return (
     <section className={styles.profile} style={{ backgroundColor: "#f0b6c8" }}>
 
       <br></br>
-      <h2 className={styles.breedsWrapperTitle}>
+      <h2>
         Profile
       </h2>
       
