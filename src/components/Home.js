@@ -178,7 +178,7 @@ const Home = () => {
 
             <div className="container">
 
-                <h3 className="heading-primary center-align"></h3>
+                <h3 className="center-align">
                 <div className="grid grid--2-cols about-us">
                     <a href="https://checkout.stripe.com/c/pay/cs_test_a15fkh80ulPh6yNN0VadNVJfeVQqUXGfAWhRuIlmpoGceH8GD2PH9UpNvS#fidkdWxOYHwnPyd1blpxYHZxWjA0SGFyU1VBQm1yPWAyaTZ2dzZAbDFOXFxUc1Z%2FdDNWXXZJZkljfHZzaH1VNXFDfGdzVXxtYDRPcEw8RmdWQ0FscVFBR1JxXUxnaGtzMkk0VUR3SEBpYEszNTVEXE5%2FPUg2bScpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVpjX2A1NEpiXW09bHU1XGpnTEsneCUl">
                         <div className={styles['dog-product-1']} />
@@ -193,6 +193,7 @@ const Home = () => {
                        <div className={styles['dog-product-4']} />
                     </a>
                 </div>
+                </h3>
             </div> 
             <br></br>
             <br></br>
