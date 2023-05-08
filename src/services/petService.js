@@ -1,66 +1,47 @@
-
-
 import { db } from "../firebase";
-import { collection, doc, getDocs, addDoc, setDoc, getDoc, deleteDoc } from "firebase/firestore";
+import {
+  collection,
+  doc,
+  deleteDoc,
+  getDocs,
+  addDoc,
+  setDoc,
+  getDoc,
+} from "firebase/firestore";
+
+const petCollection = collection(db, "pets");
 
 export async function addPet(data) {
-  try {
-    const petsCollection = collection(db, "pets");
-    const newPetRef = await addDoc(petsCollection, data);
-    const newPetDoc = await getDoc(newPetRef);
-    return newPetDoc;
-  } catch (error) {
-    console.error("Error adding pet: ", error);
-  }
+  const petDocRef = await addDoc(petCollection, data);
+  return petDocRef.id;
 }
 
 export async function getOne(petId) {
-  try {
-    const petsCollection = collection(db, "pets");
-    const petDocRef = doc(petsCollection, petId);
-    const petDoc = await getDoc(petDocRef);
-    if (petDoc.exists()) {
-      return petDoc;
-    } else {
-      console.log('No such document');
-    }
-  } catch (error) {
-    console.error("Error getting pet: ", error);
+  const docId = doc(petCollection, petId);
+  const docSnap = await getDoc(docId);
+
+  if (docSnap.exists()) {
+    return docSnap;
+  } else {
+    throw new Error("No such document");
   }
 }
 
 export async function getAll() {
-  try {
-    const petsCollection = collection(db, "pets");
-    const querySnapshot = await getDocs(petsCollection);
-    return querySnapshot;
-  } catch (error) {
-    console.error("Error getting all pets: ", error);
-  }
+  const querySnapshot = await getDocs(petCollection);
+  const pets = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() }));
+  return pets;
 }
 
 export async function updatePet(pet) {
-  try {
-    const petsCollection = collection(db, "pets");
-    const petDocRef = doc(petsCollection, pet.id);
-    await setDoc(petDocRef, pet);
-    const updatedPetDoc = await getDoc(petDocRef);
-    return updatedPetDoc;
-  } catch (error) {
-    console.error("Error updating pet: ", error);
-  }
+  const docId = doc(petCollection, pet.id);
+  await setDoc(docId, { ...pet });
+  const updatedDoc = await getDoc(docId);
+
+  return updatedDoc.data();
 }
 
 export async function deletePet(petId) {
-  try {
-    const petsCollection = collection(db, "pets");
-    const petDocRef = doc(petsCollection, petId);
-    const deletedPetDoc = await getDoc(petDocRef);
-    await deleteDoc(petDocRef);
-    return deletedPetDoc;
-  } catch (error) {
-    console.error("Error deleting pet: ", error);
-  }
+  const docId = doc(petCollection, petId);
+  await deleteDoc(docId);
 }
-
-
