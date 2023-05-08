@@ -3,7 +3,7 @@ import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 
 // import pet services
-import { deletePet, getOne } from "../../services/petService";
+import { deletePet, getPet } from "../../services/petService";
 
 // import pet context and authentication
 import { PetContext } from "../../context/PetContext";
@@ -92,7 +92,7 @@ const PetDetails = () => {
   useEffect(() => {
     async function fetchPet() {
       try {
-        const pet = await getOne(petId);
+        const pet = await getPet(petId);
         setPet({ id: pet.id, ...pet.data() });
         setIsLiked(pet.data().likedBy.includes(currentUser?.uid));
       } catch (error) {
@@ -155,3 +155,4 @@ const PetDetails = () => {
   );
 };
 export default PetDetails;
+
