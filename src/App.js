@@ -20,7 +20,6 @@ import AvailablePets from './components/Pets/AvailablePets';
 import PetDetails from './components/Pets/PetDetails';
 
 import { PetContext } from './context/PetContext';
-import './App.css';
 
 
 function App() {
