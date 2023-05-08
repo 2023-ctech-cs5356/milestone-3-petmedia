@@ -25,8 +25,9 @@ const Register = () => {
   const navigate = useNavigate();
   const { dispatch } = useContext(AuthContext);
 
-  // handle situation when password doesn't match!
+  // need further research to handle situation when password doesn't match!
   // https://stackoverflow.com/questions/1653425/a-za-z-a-za-z0-9-regular-expression
+  // handle thre situatios
   const inputs = [
     {
       id: 1,
@@ -57,6 +58,7 @@ const Register = () => {
     },
   ];
 
+  // handle sibmission
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setValues((prevValues) => ({
@@ -66,10 +68,12 @@ const Register = () => {
   };
 
   const handleSubmit = (event) => {
+
     event.preventDefault();
 
     const { password, repeatPassword, email } = values;
 
+    // situation when two passwords not matching
     if (password !== repeatPassword) {
       setError(true);
       return;
@@ -77,6 +81,7 @@ const Register = () => {
 
     setError(false);
 
+    // try to create account and response when error occurs
     createUserWithEmailAndPassword(auth, email, password)
       .then((userCredential) => {
         const user = userCredential.user;
@@ -90,6 +95,13 @@ const Register = () => {
 
   return (
     <div className={styles.register}>
+
+      <h2>
+        <font size="10" color="black">
+          Sign Up
+          </font>
+      </h2>
+
       <div className={styles.divBtn}>
         <p className={styles["p-auth-info"]}>
           Hello new user! Welcome to Petmedia.
@@ -103,7 +115,7 @@ const Register = () => {
         </p>
       </div>
 
-      <form className={styles.formOne} onSubmit={handleSubmit}>
+      <form className={styles.form} onSubmit={handleSubmit}>
         {inputs.map((input) => (
           <InputLogin
             key={input.id}
@@ -120,7 +132,7 @@ const Register = () => {
         ))}
 
         <div className={styles["divBtn"]}>
-          <button className={styles["btnlogin"]} type="submit">
+          <button className={styles["loginbtn"]} type="submit">
             Register
           </button>
           <p className={styles["p-auth-info"]}>
@@ -133,7 +145,7 @@ const Register = () => {
             <br></br>{" "}
             <Link className="link-auth" to="/login">
               {" "}
-              Login
+              Sign up
             </Link>{" "}
           </p>
           {error && (
@@ -141,6 +153,10 @@ const Register = () => {
           )}
         </div>
       </form>
+      
+      <br></br>
+      <br></br>
+      {/* <br></br> */}
 
       <p className="heading-tertiary contrast-color">
         Join PetMedia today and become part of a vibrant and supportive
