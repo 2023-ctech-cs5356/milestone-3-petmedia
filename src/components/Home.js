@@ -8,6 +8,7 @@ import styles from './Home.module.css';
 import { PetContext } from './../context/PetContext';
 import PetItem from './Pets/PetItem';
 
+
 const Home = () => {
 
     const ctx = useContext(PetContext);
