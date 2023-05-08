@@ -1,10 +1,18 @@
+// import react and react-dom
 import { useState, useContext } from "react";
 import { useLocation, useNavigate, useParams } from "react-router-dom";
 
+// import pet context and authentication
 import { PetContext } from "../../context/PetContext";
 import { AuthContext } from "../../context/AuthContext";
+
+// import inputsdata
 import inputsData from "./inputsData";
+
+// import input login
 import InputLogin from "../InputLogin";
+
+// import css style
 import styles from "../Pets/EditPet.module.css";
 
 const EditPet = () => {
