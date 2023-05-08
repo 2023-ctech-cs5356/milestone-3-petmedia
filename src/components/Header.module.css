@@ -1,20 +1,41 @@
+.ctabtn {
+  display: inline-block;
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 1.7rem;
+  transition: all 0.2s;
+}
+
+.ctabtn:link,
+.ctabtn:visited {
+  padding: 1.2rem 2.4rem;
+  border-radius: 9px;
+  color: #fff;
+  background-color: #ce98bf;
+}
+
+.ctabtn:hover,
+.ctabtn:active {
+  background-color: #5fa206;
+}
+
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-   
-    
-    height: 9.6rem;
-    padding: 0 4.8rem;
+    list-style: none;
+    height: 9rem;
+    padding: 0 5rem;
 }
 
 
 .banner {
-    min-height: 35.5rem;
-    background: url(/public/assets/img/banner.jpg) no-repeat center 0px;
+    min-height: 32rem;
+    background: url(/public/assets/img/banner_background.jpg) no-repeat center 0px;
     background-size: cover;
     position: relative;
-    margin-bottom: 5.6rem;
+    margin-bottom: 3rem;
   }
 
   .logo {
@@ -26,7 +47,7 @@
     display: flex;
     list-style: none;
     align-items: center;
-    gap: 3.2rem;
+    gap: 3.4rem;
   }
   
   .main-nav-link:link,
@@ -41,41 +62,20 @@
   
   .main-nav-link:hover,
   .main-nav-link:active {
-    color: #68b403;
+    color: #4d8208;
   }
   
   .main-nav-link.nav-cta:link,
   .main-nav-link.nav-cta:visited {
-    padding: 1.2rem 2.4rem;
+    padding: 1.4rem 2.5rem;
     border-radius: 9px;
     color: #fff;
-    background-color: #68b403;
+    background-color: #528e03;
   }
   
   .main-nav-link.nav-cta:hover,
   .main-nav-link.nav-cta:active {
-    background-color: #539002;
+    background-color: #4f830b;
   }
 
-  .ctabtn {
-    display: inline-block;
-    text-decoration: none;
-    color: #fff;
-    font-weight: 500;
-    font-size: 1.8rem;
-    transition: all 0.3s;
-  }
-
-  .ctabtn:link,
-  .ctabtn:visited {
-    padding: 1.2rem 2.4rem;
-    border-radius: 9px;
-    color: #fff;
-    background-color: #e6aad5;
-  }
-  
-  .ctabtn:hover,
-  .ctabtn:active {
-    background-color: #539002;
-  }
 
