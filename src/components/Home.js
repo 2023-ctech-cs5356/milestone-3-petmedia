@@ -41,7 +41,7 @@ const Home = () => {
         <Fragment>
             <div className="container">
 
-                <h1 className="heading-primary">About us</h1>
+                <h1 className={styles['breeds-wrapper-title']}>About us</h1>
                 
                 <p className="heading-tertiary contrast-color"> PetMedia is the perfect place to connect, share, and celebrate every beloved pets.</p>
                 
@@ -77,8 +77,14 @@ const Home = () => {
                         <br></br>                            
                             The Pets Park on PetMedia is not only a place to showcase your pet's star power, but it's 
                             also a platform to celebrate the incredible bond between humans and animals.
-
                         </p>
+
+                        <p className={styles['article-paragraph']}>
+                        <br></br>                            
+                        Our platform provides a vibrant online community where pet owners can come together to showcase their 
+                        furry friends, exchange stories, and connect.
+                        </p>
+
                     </div>
 
                     <div className="left">
@@ -88,29 +94,30 @@ const Home = () => {
             </div>
 
 
-            <div className={styles['adopt-flex']}>
+            {/* function */}
+            <div className={styles['flex']}>
 
                 <div className="container">
 
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                    
                     <h2 className="heading-tertiary">Cuttest pets here!</h2>
                     <p className="heading-tertiary">
-                        PetMedia is the ultimate social media platform designed exclusively for pet lovers around the world. 
-                    </p>
+                        PetMedia is the ultimate social media platform designed exclusively for pet lovers. 
 
-                    <p className="heading-tertiary">           
-                        At PetMedia, we understand the deep bond between humans and animals. Our platform provides a vibrant online community 
-                        where pet owners can come together to showcase their furry friends, exchange stories, and connect with like-minded 
-                        individuals who share their passion for pets.
-                    </p>
-
-                    <p className="heading-tertiary">           
+                    {/* <p className="heading-tertiary">           
+                        Our platform provides a vibrant online community where pet owners can come together to showcase their 
+                        furry friends, exchange stories, and connect.
+                    </p> */}
+         
                         Come register right now and become part of the petmedia society in NYC!
                     </p>
                 </div>
-
             </div>
 
-
+            {/* pet parks */}
             <div className="container">
     
                 <h2 className={styles['breeds-wrapper-title']}>Pets Park</h2>
@@ -127,12 +134,57 @@ const Home = () => {
                         : <h2>No pets listed</h2>
                     }
                 </div>
+
+                {/* ending */}
+                <p className="heading-tertiary contrast-color">           
+                    Didn't see your pet above? Join PetMedia today and become part of a vibrant and supportive community that celebrates the love and 
+                    companionship that pets bring to our lives.
+                </p>
             </div>
 
-            <p className="heading-tertiary contrast-color">           
-                Didn't see your pet above? Join PetMedia today and become part of a vibrant and supportive community that celebrates the love and 
-                companionship that pets bring to our lives.
-            </p>
+
+
+            {/* sponsor products */}
+            <h3 className={styles['breeds-wrapper-title']}>Sponsor Products</h3>
+            
+            <div class="column">
+                    <div class="item-1 product-image">
+                    <img></img>
+                    </div>
+                    <div class="item-2">
+                    <img></img>
+                    </div>
+                    <div class="item-3">
+                    </div>
+                <br></br>
+                <div>
+                <button class="previous-button button is-black is-pulled-left pl-6 pr-6"></button>
+                <button class="next-button button is-black is-pulled-right pl-6 pr-6"></button>
+                </div>
+            </div>
+
+            <div className="container">
+
+                <h3 className="heading-primary center-align"></h3>
+                <div className="grid grid--2-cols about-us">
+                    <a href="https://checkout.stripe.com/c/pay/cs_test_a15fkh80ulPh6yNN0VadNVJfeVQqUXGfAWhRuIlmpoGceH8GD2PH9UpNvS#fidkdWxOYHwnPyd1blpxYHZxWjA0SGFyU1VBQm1yPWAyaTZ2dzZAbDFOXFxUc1Z%2FdDNWXXZJZkljfHZzaH1VNXFDfGdzVXxtYDRPcEw8RmdWQ0FscVFBR1JxXUxnaGtzMkk0VUR3SEBpYEszNTVEXE5%2FPUg2bScpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVpjX2A1NEpiXW09bHU1XGpnTEsneCUl">
+                        <div className={styles['dog-product-1']} />
+                    </a>
+                    <a href="https://checkout.stripe.com/c/pay/cs_test_a1J1HsnQs3rTUZe8nGaHRKjxhJHCYxNX03NcvPsOIqniomL5s15kF5Lpgq#fidkdWxOYHwnPyd1blpxYHZxWjA0SGFyU1VBQm1yPWAyaTZ2dzZAbDFOXFxUc1Z%2FdDNWXXZJZkljfHZzaH1VNXFDfGdzVXxtYDRPcEw8RmdWQ0FscVFBR1JxXUxnaGtzMkk0VUR3SEBpYEszNTVEXE5%2FPUg2bScpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVo2ZnZiNUg9dEkxNzxiXWg1NT0neCUl">
+                        <div className={styles['dog-product-2']} />
+                    </a>
+                    <a href="https://checkout.stripe.com/c/pay/cs_test_a1hIbZYzZ7qiX0eteOfiaD2g84zEZ9N4ChGywn57dcrbGqU3v8xHLvkyaw#fidkdWxOYHwnPyd1blpxYHZxWjA0SGFyU1VBQm1yPWAyaTZ2dzZAbDFOXFxUc1Z%2FdDNWXXZJZkljfHZzaH1VNXFDfGdzVXxtYDRPcEw8RmdWQ0FscVFBR1JxXUxnaGtzMkk0VUR3SEBpYEszNTVEXE5%2FPUg2bScpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVo3PWpgUkwyaE1ncEdjUWw9cn8neCUl">
+                       <div className={styles['dog-product-3']} />
+                    </a>
+                    <a href="https://checkout.stripe.com/c/pay/cs_test_a10e2G08mkSF0GfA5AZGEIMVJnBlHSjrzcfqgu8rmVJKs6mXsdZhVRnXPG#fidkdWxOYHwnPyd1blpxYHZxWjA0SGFyU1VBQm1yPWAyaTZ2dzZAbDFOXFxUc1Z%2FdDNWXXZJZkljfHZzaH1VNXFDfGdzVXxtYDRPcEw8RmdWQ0FscVFBR1JxXUxnaGtzMkk0VUR3SEBpYEszNTVEXE5%2FPUg2bScpJ3VpbGtuQH11anZgYUxhJz8ncWB2cVo0MW4xbDExZHMwM2EyaEgzanAneCUl">
+                       <div className={styles['dog-product-4']} />
+                    </a>
+                </div>
+            </div> 
+            <br></br>
+            <br></br>
+            <br></br>
+
         </Fragment>
     )
 }
