@@ -74,4 +74,3 @@ const InputLogin = ({ label, errorMessage, onChange, id, ...inputProps }) => {
 };
 
 export default InputLogin;
-
