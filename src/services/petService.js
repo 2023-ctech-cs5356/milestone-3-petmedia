@@ -2,6 +2,7 @@
 import { db } from "../firebase";
 import { collection, doc, deleteDoc, getDocs, addDoc, setDoc, getDoc } from "firebase/firestore";
 
+
 // retrieve all pet data from firebase
 const petCollection = collection(db, "pets");
 
