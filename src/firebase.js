@@ -1,7 +1,6 @@
+// import from firbase
 import { initializeApp } from "firebase/app";
-
 import { getAuth } from "firebase/auth";
-
 import { getFirestore } from "firebase/firestore";
 
 // Line 29:7:  'analytics' is assigned a value but never used  no-unused-vars
