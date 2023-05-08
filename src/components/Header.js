@@ -1,107 +1,125 @@
-import { useContext } from 'react';
-import { Fragment } from 'react';
+// import react and react-router-dom
+import { useContext, Fragment } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
+// import sign out and authentication from firebase
 import { signOut } from "firebase/auth";
 import { auth } from '../firebase';
 
+// import authentication context and css atyle
 import { AuthContext } from '../context/AuthContext';
 import styles from './Header.module.css';
 
+const navItems = [
+    { label: "All Pets", path: "/pets" },
+    { label: "Add a pet", path: "/pets/add", auth: true },
+    { label: "Profile", path: "/profile", auth: true },
+    { label: "Login", path: "/login", auth: false },
+    { label: "Register", path: "/register", auth: false },
+  ];
 
 const Header = () => {
-    const { dispatch } = useContext(AuthContext);
-    const { currentUser } = useContext(AuthContext);
+
+    const { dispatch, currentUser } = useContext(AuthContext);
     const navigate = useNavigate();
-
-    const logoutHandler = (e) => {
-        e.preventDefault();
-
-        signOut(auth).then(() => {
-
-
-            dispatch({ type: "LOGOUT" })
-            navigate('/');
-        }).catch((error) => {
-
-            console.log(error);
-        });
+  
+    // load handler
+    const logoutHandler = async (e) => {
+      e.preventDefault();
+      try {
+        await signOut(auth);
+        dispatch({ type: "LOGOUT" });
+        navigate('/');
+      } catch (error) {
+        console.log(error);
+      }
     }
 
-
-
-
-
     return (
-        <Fragment>
+    <>
+        <div className={styles.banner}>
 
+        <p>If you have encountered any issue or like to share your user experience of using Petmedia, 
+            feel free to click contact us or send an email to petmedia@gmail.com. </p>
+        
+        <p>Petmedia designed by Katherine, Kai, and Ethan from Cornell Tech. </p>
 
-            <div className={styles.banner}>
+        <div className="container">
+            <header className={styles.header}>
 
-                <div className="container">
-                    <header className={styles.header}>
-                        <Link to="/">
-                            <img
-                                className={styles.logo}
-                                src="../assets/img/logo/pet-media-logo.svg"
-                                alt="Pet media"
-                            />
+            <li>
+                <Link className={styles['main-nav-link']} to="/">
+                    Home
+                </Link>
+            </li>
+
+            {/* Main Navigation */}
+            <nav className={styles['main-nav-list']}>
+                <ul className={styles['main-nav-list']}>
+                
+                {/* All Pets */}
+                <li>
+                    <Link className={styles['main-nav-link']} to="/pets">
+                        Pets Park
+                    </Link>
+                </li>
+
+                {/* Login and Register */}
+                {!currentUser && (
+                    <>
+                    <p>
+                        <Link className={styles['main-nav-link']} to="/register">
+                            Sign Up
                         </Link>
-                        <nav className={styles['main-nav-list']}>
-                            <ul className={styles['main-nav-list']}>
-                                {!currentUser && (
-                                    <>
-                                        <li >
-                                            <Link className={styles['main-nav-link']} to="/login">
-                                                Login
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className={styles['main-nav-link']} to="/register">
-                                                Register
-                                            </Link>
-                                        </li>
-                                    </>
-                                )}
-                                <li>
-                                    <Link className={styles['main-nav-link']} to="/pets">
-                                        All Pets
-                                    </Link>
-                                </li>
-                                {currentUser && (
-                                    <>
-                                        <li>
-                                            <Link className={styles['main-nav-link']} to="/pets/add">
-                                                Add a pet
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className={styles['main-nav-link']} to="/profile">
-                                                Profile
-                                            </Link>
-                                        </li>
-                                        <li>
-                                            <Link className={styles['main-nav-link']} to="/" onClick={logoutHandler}>
-                                                Logout
-                                            </Link>
-                                        </li>
+                    </p>
+                    
+                    <p>
+                        <Link className={styles['main-nav-link']} to="/login">
+                            Sign In
+                        </Link>
+                    </p>
 
-                                    </>
-                                )}
+                    </>
+                )}
 
-                                <li>
-                                    <a className={styles['ctabtn']} href="#">
-                                        Contact Us
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
-                    </header>
-                </div>
-            </div>
-        </Fragment>
+
+
+                {/* Add a Pet, Profile, Logout */}
+                {currentUser && (
+                    <>
+                    
+                    <p>
+                        <Link className={styles['main-nav-link']} to="/pets/add">
+                            Add pet
+                        </Link>
+                    </p>
+                    
+                    <p>
+                        <Link className={styles['main-nav-link']} to="/profile">
+                            Profile
+                        </Link>
+                    </p>
+
+                    <p>
+                        <Link
+                            to="/"
+                            className={styles['main-nav-link']}                        
+                            onClick={logoutHandler}
+                        >
+                            Logout
+                        </Link>
+                    </p>
+
+                    </>
+                )}
+
+                </ul>
+            </nav>
+            </header>
+        </div>
+    </div>
+    </>
     )
 }
-
 
 export default Header;
