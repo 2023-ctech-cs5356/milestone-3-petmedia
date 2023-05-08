@@ -145,9 +145,22 @@ const Home = () => {
 
 
             {/* sponsor products */}
-            <h3 className={styles['breeds-wrapper-title']}>Sponsor Products</h3>
-            
-            <div class="column">
+            <br></br>
+            <br></br>
+            <div className={styles['sponsor-products']}>
+                <div className="container">
+                    <br></br>
+                    <br></br>
+                    <h2 className="heading-tertiary">Sponsor Products</h2>
+
+                    <p className="heading-tertiary">
+                        Thanks for our generous sponsors to make PetMedia social media platform possible.
+                        They provie high-quality products for your beloved pets!
+                    </p>
+
+                </div>
+            </div>
+            {/* <div class="column">
                     <div class="item-1 product-image">
                     <img></img>
                     </div>
@@ -161,7 +174,7 @@ const Home = () => {
                 <button class="previous-button button is-black is-pulled-left pl-6 pr-6"></button>
                 <button class="next-button button is-black is-pulled-right pl-6 pr-6"></button>
                 </div>
-            </div>
+            </div> */}
 
             <div className="container">
 
