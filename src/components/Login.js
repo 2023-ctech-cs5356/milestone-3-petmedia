@@ -78,13 +78,13 @@ const inputs = [
 return (
   <div className="container">
     <div className={styles.login}>
-      
-       <h2>
+
+      <h2>
         <font size="10" color="black">
           Sign In
-        </font>
-       </h2>
-  
+          </font>
+      </h2>
+      
       <div className={styles.divBtn}>
         <p className={styles["p-auth-info"]}>
           Hello returning user!
