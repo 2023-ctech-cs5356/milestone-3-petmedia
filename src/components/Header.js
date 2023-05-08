@@ -106,10 +106,9 @@ const Header = () => {
                             className={styles['main-nav-link']}                        
                             onClick={logoutHandler}
                         >
-                            Logout
+                            Sign Out
                         </Link>
                     </p>
-
                     </>
                 )}
 
@@ -123,3 +122,4 @@ const Header = () => {
 }
 
 export default Header;
+
