@@ -1,8 +1,12 @@
-
+//  import react
 import { useContext, useMemo } from 'react';
 import React from 'react';
+
+// import pet item and pet context
 import PetItem from './PetItem';
 import { PetContext } from '../../context/PetContext';
+
+// import css style
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
