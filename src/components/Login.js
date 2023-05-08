@@ -121,7 +121,7 @@ return (
             click the below Register to create a new account!<br></br>{" "}
             <Link className="link-auth" to="/register">
               {" "}
-              Register
+              Sign Up
             </Link>{" "}
           </p>
           {error && (
