@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 
+// import pet context and authentication
 import { PetContext } from "../../context/PetContext";
 import { AuthContext } from "../../context/AuthContext";
 
@@ -111,26 +112,50 @@ const AddNewPet = () => {
   return (
     <div className="container">
       <h1>Add Pet</h1>
+
       <FormWrapper>
         <Space />
-        <Form className="grid grid--2-cols" onSubmit={handleSubmit}>
-          {inputsData.map((input) => (
-            <FieldForm key={input.id}>
-              <LabelField htmlFor={input.id}>{input.label}</LabelField>
-              <InputField
-                id={input.id}
-                type={input.type}
-                name={input.name}
-                value={petData[input.name]}
-                onChange={onInputChange}
-              />
-            </FieldForm>
-          ))}
-          <BtnFormContainer>
-            <SubmitButton>Add</SubmitButton>
-          </BtnFormContainer>
-        </Form>
+
+        <h2>
+          <font size="10" color="black">
+          Add your pet!
+          </font>
+        </h2>
+        
+        <h1 color="black" className="heading-tertiary contrast-color">
+              <br></br>
+                  Can't wait to share cute photos or exiting story about your pet? 
+              <br></br>
+                  You can add your pet profilt to the Petmedia community here.
+        </h1>
+
+
+        <font size="3" color="black">
+          <Form className="grid grid--2-cols" onSubmit={handleSubmit}>
+            {inputsData.map((input) => (
+              <FieldForm key={input.id}>
+                <LabelField htmlFor={input.id}>{input.label}</LabelField>
+                <InputField
+                  id={input.id}
+                  type={input.type}
+                  name={input.name}
+                  value={petData[input.name]}
+                  onChange={onInputChange}
+                />
+              </FieldForm>
+            ))}
+            <BtnFormContainer>
+              <SubmitButton>Add</SubmitButton>
+            </BtnFormContainer>
+          </Form>
+          </font>
       </FormWrapper>
+
+      <p className="heading-tertiary contrast-color">
+        Join PetMedia today and become part of a vibrant and supportive
+        community that celebrates the love and companionship that pets bring
+        to our lives!
+      </p>
     </div>
   );
 };
