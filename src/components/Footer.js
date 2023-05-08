@@ -4,6 +4,7 @@ import React from "react";
 // import css style 
 import styles from "./Footer.module.css";
 
+
 const Footer = () => {
   const socialIcons = () => {
     // Implement the logic to render social icons
