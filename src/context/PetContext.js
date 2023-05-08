@@ -1,7 +1,7 @@
 // import from firebase, react, and petService files
 import { getDoc } from "firebase/firestore";
 import { useEffect, createContext, useState } from "react";
-import { addPet, getAll, updatePet } from "../services/petService";
+import { addPet, getAllPets, updatePet } from "../services/petService";
 
 
 // create the PetContext object with default values for each property.
@@ -23,7 +23,7 @@ export const PetContextProvider = (props) => {
 
     useEffect(() => {
         try {
-            getAll().then((pets) => {
+            getAllPets().then((pets) => {
                 const currentPets = [];
 
                 pets.forEach((p) => {
