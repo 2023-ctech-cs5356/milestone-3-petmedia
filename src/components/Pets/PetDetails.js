@@ -1,9 +1,15 @@
-// PetDetails.js
+// import react and react-dom
 import { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+
+// import pet services
 import { deletePet, getOne } from "../../services/petService";
+
+// import pet context and authentication
 import { PetContext } from "../../context/PetContext";
 import { AuthContext } from "../../context/AuthContext";
+
+// import css style
 import styled from "styled-components";
 
 export const Details = styled.div`
