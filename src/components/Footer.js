@@ -1,4 +1,7 @@
+// import from react
 import React from "react";
+
+// import css style 
 import styles from "./Footer.module.css";
 
 const Footer = () => {
@@ -8,10 +11,10 @@ const Footer = () => {
   };
 
   return (
-    <div className={styles.footer}>
+    <div className={styles.footerBackground}>
       <div className="container">
         {socialIcons()}
-        <p className={styles.footerContent}>
+        <p className={styles.footerText}>
           © Pet Media. All Rights Reserved | Designed by Katherine, Kai, Ethan
         </p>
       </div>
