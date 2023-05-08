@@ -1,5 +1,6 @@
 // import react and react-router-dom
-import { useContext, Fragment } from 'react';
+// import { useContext, Fragment } from 'react';
+import { useContext} from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 // import sign out and authentication from firebase
@@ -10,13 +11,13 @@ import { auth } from '../firebase';
 import { AuthContext } from '../context/AuthContext';
 import styles from './Header.module.css';
 
-const navItems = [
-    { label: "All Pets", path: "/pets" },
-    { label: "Add a pet", path: "/pets/add", auth: true },
-    { label: "Profile", path: "/profile", auth: true },
-    { label: "Login", path: "/login", auth: false },
-    { label: "Register", path: "/register", auth: false },
-  ];
+// const navItems = [
+//     { label: "All Pets", path: "/pets" },
+//     { label: "Add a pet", path: "/pets/add", auth: true },
+//     { label: "Profile", path: "/profile", auth: true },
+//     { label: "Login", path: "/login", auth: false },
+//     { label: "Register", path: "/register", auth: false },
+//   ];
 
 const Header = () => {
 
@@ -122,4 +123,3 @@ const Header = () => {
 }
 
 export default Header;
-
