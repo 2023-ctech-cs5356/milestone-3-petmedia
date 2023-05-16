@@ -1,0 +1,10 @@
+.footerBackground {
+    padding: 1.5em 0em; 
+	background:#000000;
+}
+
+.footerText{
+    color:  rgb(208, 220, 224);
+    text-align: center; 
+    letter-spacing: 3px; 
+}

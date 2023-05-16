@@ -1,0 +1,15 @@
+.profile {
+    margin-bottom: 3em;
+    margin-bottom: 0em;
+    font-size: 3rem;
+    background-color: rgb(190, 100, 100);
+}
+.userName {
+    text-align: center;
+    margin-bottom: 1.2em;
+}
+  
+h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+}
